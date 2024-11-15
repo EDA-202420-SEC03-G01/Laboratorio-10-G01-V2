@@ -82,9 +82,10 @@ def add_edge(graph, vertex_a, vertex_b, weight=0):
 		arco_2 = edge.new_edge(vertex_b, vertex_a, weight)
 		adyacentes_2 = sc.get(graph["adyacentes"], vertex_b)
     return graph
-"""
+
 def insert_vertex(graph, key_vertex, info_vertex):
     return graph
+"""
 
 
 
