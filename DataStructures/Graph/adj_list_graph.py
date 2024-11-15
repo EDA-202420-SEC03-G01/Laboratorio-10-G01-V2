@@ -57,9 +57,18 @@ def in_degree(grafo, vertice):
 def vertices(grafo):
     return sc.key_set(grafo['vertices'])
 
+def contains_vertex(graph, vertex):
+    return sc.get(graph['vertices'], vertex)
+
+def get_edge(graph, vertex_a, vertex_b):
+    lista_arco = sc.get(graph['vertices'],vertex_a)
+    for arco in lista_arco['elements']:
+        if edge.other(arco,vertex_a) == vertex_b:
+            return arco
+
 # Funciones por hacer
 """
-def add_edge(graph, vertex_a, vertex_b, weight):
+def add_edge(graph, vertex_a, vertex_b, weight=0):
     arco = edge.new_edge(vertex_a, vertex_b, weight)
 	vertices = sc.get(graph["vertices"], vertex_a)
 	lt.add_last(vertices, arco)
@@ -74,6 +83,8 @@ def add_edge(graph, vertex_a, vertex_b, weight):
 		adyacentes_2 = sc.get(graph["adyacentes"], vertex_b)
     return graph
 """
-def insert_vertex(grafo):
-    return grafo
+def insert_vertex(graph, key_vertex, info_vertex):
+    return graph
+
+
 
