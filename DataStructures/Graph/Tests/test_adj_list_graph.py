@@ -64,7 +64,6 @@ def test_num_vertices():
     assert gl.num_vertices(some_graph) == 2
 
 
-@handle_not_implemented
 def test_num_edges():
     empty_graph, some_graph = setup_tests()
 
@@ -73,7 +72,6 @@ def test_num_edges():
     assert gl.num_edges(some_graph) == 1
 
 
-@handle_not_implemented
 def test_vertices():
     empty_graph, some_graph = setup_tests()
 
@@ -87,7 +85,6 @@ def test_vertices():
     assert vertices["elements"] is not None
 
 
-@handle_not_implemented
 def test_edges():
     empty_graph, some_graph = setup_tests()
 
