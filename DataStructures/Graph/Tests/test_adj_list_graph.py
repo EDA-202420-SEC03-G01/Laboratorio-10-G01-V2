@@ -1,7 +1,7 @@
 import pytest
 from DataStructures.Utils.utils import handle_not_implemented
 from DataStructures.Graph import adj_list_graph as gl
-from DataStructures.Map import map_linear_probing as mp
+from DataStructures.Map import map_separate_chaining as mp
 from DataStructures.List import array_list as lt
 from DataStructures.Graph import edge
 
@@ -28,15 +28,14 @@ def setup_tests():
     return empty_graph, some_graph
 
 
-@handle_not_implemented
 def test_new_graph():
     graph = gl.new_graph(10, False)
     assert graph["edges"] == 0
     assert graph["in_degree"] == None
     assert graph["vertices"]["capacity"] == mp.new_map(10, 0.5)["capacity"]
-    assert graph["vertices"]["type"] == "PROBING"
+    assert graph["vertices"]["type"] == "CHAINING"
     assert graph["information"]["capacity"] == mp.new_map(10, 0.5)["capacity"]
-    assert graph["information"]["type"] == "PROBING"
+    assert graph["information"]["type"] == "CHAINING"
 
 
 @handle_not_implemented
@@ -58,7 +57,6 @@ def test_insert_vertex():
     pass
 
 
-@handle_not_implemented
 def test_num_vertices():
     empty_graph, some_graph = setup_tests()
 
@@ -103,7 +101,6 @@ def test_edges():
     assert edges["elements"] is not None
 
 
-@handle_not_implemented
 def test_degree():
     empty_graph, some_graph = setup_tests()
 
@@ -114,7 +111,6 @@ def test_degree():
     assert gl.degree(some_graph, 2) == 1
 
 
-@handle_not_implemented
 def test_in_degree():
     empty_graph, some_graph = setup_tests()
 
