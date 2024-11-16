@@ -72,25 +72,24 @@ def get_edge(graph, vertex_a, vertex_b):
 def add_edge(graph, vertex_a, vertex_b, weight=0):
     arco_1 = edge.new_edge(vertex_a, vertex_b, weight)
     verticees = sc.get(graph["vertices"], vertex_a)
-    if verticees == None:
-        verticees = lt.new_list()
-        sc.put(graph['vertices'],vertex_a,verticees)
-    lt.add_last(verticees, arco_1)
+    if verticees != None:
+        #verticees = lt.new_list()
+        #sc.put(graph['vertices'],vertex_a,verticees)
+        lt.add_last(verticees, arco_1)
+        graph['edges'] += 1
     if graph["directed"] != False: #es decir, si es verdadero o existe el mapa
         in_degree = sc.get(graph["in_degree"], vertex_b)
-        if in_degree == None:
-            in_degree = lt.new_list()
-            sc.put(graph['in_degree'],vertex_b, in_degree)
-        lt.add_last(in_degree, arco_1)
+        if in_degree != None:
+            #in_degree = lt.new_list()
+            #sc.put(graph['in_degree'],vertex_b, in_degree)
+            lt.add_last(in_degree, arco_1)
     else:
         arco_2 = edge.new_edge(vertex_b, vertex_a, weight)
         verticees = sc.get(graph["vertices"], vertex_b)
-        if verticees == None:
-            verticees = lt.new_list()
-            sc.put(graph['vertices'],vertex_b,verticees)
-        lt.add_last(verticees, arco_2)
-        #duda de esto
-    graph['edges'] += 1
+        if verticees != None:
+            #verticees = lt.new_list()
+            #sc.put(graph['vertices'],vertex_b,verticees)
+            lt.add_last(verticees, arco_2)
     return graph
 
 def insert_vertex(graph, key_vertex, info_vertex):
