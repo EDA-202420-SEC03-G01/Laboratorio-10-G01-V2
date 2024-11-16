@@ -10,7 +10,8 @@ def new_graph(size=19, directed=False):
              "edges": 0, #iniciadon en 15
              "directed": directed, #de acuerdo a lo dado en parametro
              "type": "ADJ_LIST"}
-    
+    if graph['directed']:
+        graph['directed'] = sc.new_map(size, 0.5)
     return graph
 
 #funciones que ya están y funcionan
