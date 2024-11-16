@@ -39,7 +39,7 @@ def test_new_graph():
     assert graph["information"]["type"] == "PROBING"
 
 
-@handle_not_implemented
+
 def test_insert_vertex():
     empty_graph, some_graph = setup_tests()
 
