@@ -28,7 +28,7 @@ import csv
 import time
 import os
 
-data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/'
+data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/singapur_bus_routes/'
 
 
 # ___________________________________________________
