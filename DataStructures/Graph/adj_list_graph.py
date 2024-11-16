@@ -67,26 +67,6 @@ def get_edge(graph, vertex_a, vertex_b):
         if edge.other(arco,vertex_a) == vertex_b:
             return arco
 
-# Funciones por hacer
-"""
-def add_edge(graph, vertex_a, vertex_b, weight=0):
-    arco = edge.new_edge(vertex_a, vertex_b, weight)
-	vertices = sc.get(graph["vertices"], vertex_a)
-	lt.add_last(vertices, arco)
-	if graph["directed"]:
-		in_degree = sc.get(graph["in_degree"], vertex_b)
-        if in_degree == None:
-            graph['in_degree'] = sc.new_map(10, 0.5)
-            sc.put(graph['in_degree'],vertex_b)
-		#lt.add_last(graph["in_degree"], vertex_a)
-	else:
-		arco_2 = edge.new_edge(vertex_b, vertex_a, weight)
-		adyacentes_2 = sc.get(graph["adyacentes"], vertex_b)
-    return graph
-
-def insert_vertex(graph, key_vertex, info_vertex):
-    return graph
-
 def insert_vertex (my_graph, key_vertex, info_vertex):
     
     sc.put(my_graph["information"], key_vertex, info_vertex)
