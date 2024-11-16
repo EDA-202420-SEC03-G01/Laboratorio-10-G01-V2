@@ -123,7 +123,7 @@ def test_add_edge():
 
     gl.add_edge(empty_graph, 1, 2, 3.0)
 
-    assert gl.num_edges(empty_graph) == 1 #0, cambiado
+    assert gl.num_edges(empty_graph) == 0
 
     gl.insert_vertex(some_graph, 3, {"name": "D"})
     gl.add_edge(some_graph, 1, 3, 3.0)
