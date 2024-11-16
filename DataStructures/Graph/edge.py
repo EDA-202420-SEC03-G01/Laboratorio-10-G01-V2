@@ -78,6 +78,36 @@ def set_weight(edge, weight):
     edge["weight"] = weight
 
 
+def compare_edges_no_dirigido(edge1, edge2):
+    """
+    Funcion utilizada en lista de edges para comparar dos edges
+    Retorna 0 si los arcos son iguales, 1 si edge1 > edge2, -1 edge1 < edge2
+
+    :param edge1: Arco 1
+    :type edge1: edge
+    :param edge2: Arco 2
+    :type edge2: edge
+
+    :returns: 0 si los arcos son iguales, 1 si edge1 > edge2, -1 edge1 < edge2
+    :rtype: int
+    """
+    e1v = either(edge1)
+    e2a = either(edge2)
+    e2v = other(edge2,e2a)
+
+    if e1v == e2v:
+        if other(edge1, e1v) == other(edge2, e2v):
+            return 0
+        elif other(edge1, e1v) > other(edge2, e2v):
+            return 1
+        else:
+            return -1
+    elif e1v > e2v:
+        return 1
+    else:
+        return -1
+    
+    
 def compare_edges(edge1, edge2):
     """
     Funcion utilizada en lista de edges para comparar dos edges

@@ -36,7 +36,7 @@ data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/'
 # ___________________________________________________
 
 from DataStructures.Graph import adj_list_graph as gr
-from DataStructures.Map import map_linear_probing as m
+from DataStructures.Map import map_separate_chaining as m
 from DataStructures.List import single_linked_list as lt
 """
 El controlador se encarga de mediar entre la vista y el modelo.
