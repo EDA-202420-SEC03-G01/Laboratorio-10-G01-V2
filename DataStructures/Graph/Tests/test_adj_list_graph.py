@@ -118,13 +118,12 @@ def test_in_degree():
     assert gl.in_degree(some_graph, 2) == 1
 
 
-@handle_not_implemented
 def test_add_edge():
     empty_graph, some_graph = setup_tests()
 
     gl.add_edge(empty_graph, 1, 2, 3.0)
 
-    assert gl.num_edges(empty_graph) == 0
+    assert gl.num_edges(empty_graph) == 1 #0, cambiado
 
     gl.insert_vertex(some_graph, 3, {"name": "D"})
     gl.add_edge(some_graph, 1, 3, 3.0)

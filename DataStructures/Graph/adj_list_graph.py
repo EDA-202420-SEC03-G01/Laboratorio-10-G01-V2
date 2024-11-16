@@ -67,26 +67,43 @@ def get_edge(graph, vertex_a, vertex_b):
         if edge.other(arco,vertex_a) == vertex_b:
             return arco
 
-# Funciones por hacer
-"""
+# Funciones por hacer - agregar!
+
 def add_edge(graph, vertex_a, vertex_b, weight=0):
-    arco = edge.new_edge(vertex_a, vertex_b, weight)
-	vertices = sc.get(graph["vertices"], vertex_a)
-	lt.add_last(vertices, arco)
-	if graph["directed"]:
-		in_degree = sc.get(graph["in_degree"], vertex_b)
+    arco_1 = edge.new_edge(vertex_a, vertex_b, weight)
+    verticees = sc.get(graph["vertices"], vertex_a)
+    if verticees == None:
+        verticees = lt.new_list()
+        sc.put(graph['vertices'],vertex_a,verticees)
+    lt.add_last(verticees, arco_1)
+    if graph["directed"] != False: #es decir, si es verdadero o existe el mapa
+        in_degree = sc.get(graph["in_degree"], vertex_b)
         if in_degree == None:
-            graph['in_degree'] = sc.new_map(10, 0.5)
-            sc.put(graph['in_degree'],vertex_b)
-		#lt.add_last(graph["in_degree"], vertex_a)
-	else:
-		arco_2 = edge.new_edge(vertex_b, vertex_a, weight)
-		adyacentes_2 = sc.get(graph["adyacentes"], vertex_b)
+            in_degree = lt.new_list()
+            sc.put(graph['in_degree'],vertex_b, in_degree)
+        lt.add_last(in_degree, arco_1)
+    else:
+        arco_2 = edge.new_edge(vertex_b, vertex_a, weight)
+        verticees = sc.get(graph["vertices"], vertex_b)
+        if verticees == None:
+            verticees = lt.new_list()
+            sc.put(graph['vertices'],vertex_b,verticees)
+        lt.add_last(verticees, arco_2)
+        #duda de esto
+    graph['edges'] += 1
     return graph
 
 def insert_vertex(graph, key_vertex, info_vertex):
+    mapa_vertices_info = graph['information']
+    sc.put(mapa_vertices_info, key_vertex, info_vertex)
+    mapa_vertices_arcos = graph['vertices']
+    lista_arco = lt.new_list()
+    sc.put(mapa_vertices_arcos,key_vertex, lista_arco)
+    if graph['directed'] != False:
+        mapa_in_degree = graph['in_degree']
+        lista_in_degree = lt.new_list()
+        sc.put(mapa_in_degree,key_vertex,lista_in_degree)
     return graph
-"""
 
 
 
